@@ -341,25 +341,6 @@ section {
   }
 }
 
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
-
-  header p {
-    font-size: 1rem;
-  }
-
-  .proyectos {
-    grid-template-columns: 1fr !important;
-  }
-
-  #toggle-mode {
-    top: 10px;
-    right: 10px;
-  }
-}
-
 @media (max-width: 480px) {
   .form-contacto input,
   .form-contacto textarea {
@@ -379,4 +360,66 @@ section {
     font-size: 1rem;
   }
 }
+.hamburguesa {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1100;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--color-texto);
+    }
 
+    /* Responsive para móviles */
+    @media (max-width: 768px) {
+      .menu {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        background-color: #222;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .menu.visible {
+        transform: translateY(0);
+      }
+
+      .hamburguesa {
+        display: block;
+      }
+        header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .proyectos {
+    grid-template-columns: 1fr !important;
+  }
+
+  #toggle-mode {
+    top: 10px;
+    right: 10px;
+  }
+    }
+
+    /* Contenido principal */
+    .contenido {
+      margin-left: 240px;
+      padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .contenido {
+        margin-left: 0;
+        padding-top: 4rem;
+      }
