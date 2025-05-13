@@ -12,7 +12,8 @@
     <h1 id="typing-title">Victoria García</h1>
     <p>Diseñadora web</p>
   </header> 
-
+  
+  <button id="menu-toggle" class="hamburguesa">☰</button>
   <button id="toggle-mode">🌓</button>
 
   <nav class="menu">
@@ -165,6 +166,21 @@
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
     });
+     const toggleButton = document.getElementById('menu-toggle');
+    const menu = document.querySelector('.menu');
+    const links = menu.querySelectorAll('a');
+
+    toggleButton.addEventListener('click', () => {
+      menu.classList.toggle('visible');
+    });
+
+    // Cierra el menú al hacer clic en un enlace (solo en móvil)
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          menu.classList.remove('visible');
+        }
+      });
   </script>
 </body>
 </html>
