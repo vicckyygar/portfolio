@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ta Te Ti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 6vw;
+      margin: 20px 0 10px;
+      color: #00ffc8;
+    }
+
+    .marcador {
+      font-size: 4.5vw;
+      margin-bottom: 15px;
+    }
+
+    .tablero {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3vw;
+      width: 90vw;
+      max-width: 320px;
+      aspect-ratio: 1 / 1;
+      margin-bottom: 20px;
+    }
+
+    .celda {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-color: #2e2e2e;
+      font-size: 8vw;
+      color: #00ffc8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: background 0.3s, transform 0.1s;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .celda:hover {
+      background-color: #3a3a3a;
+      transform: scale(1.05);
+    }
+
+    .ganadora {
+      animation: brillo 1s infinite alternate;
+      background-color: #00ffc8 !important;
+      color: #000 !important;
+    }
+
+    @keyframes brillo {
+      from {
+        box-shadow: 0 0 10px #00ffc8;
+      }
+      to {
+        box-shadow: 0 0 25px #00ffc8;
+      }
+    }
+
+    #estado {
+      font-size: 5vw;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    button {
+      padding: 10px 25px;
+      font-size: 4vw;
+      max-width: 200px;
+      border: none;
+      border-radius: 8px;
+      background-color: #00ffc8;
+      color: #000;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #00cfa0;
+    }
+
+    @media (min-width: 600px) {
+      h1 { font-size: 36px; }
+      .marcador { font-size: 20px; }
+      #estado { font-size: 20px; }
+      .celda { font-size: 36px; }
+      button { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Ta Te Ti</h1>
+  <div class="marcador">
+    <span id="puntosX">X: 0</span> | <span id="puntosO">O: 0</span>
+  </div>
+  <div class="tablero" id="tablero"></div>
+  <p id="estado">Turno de: X</p>
+  <button onclick="reiniciar()">Reiniciar</button>
+
+  <script>
+    const tablero = document.getElementById("tablero");
+    const estado = document.getElementById("estado");
+    const puntosX = document.getElementById("puntosX");
+    const puntosO = document.getElementById("puntosO");
+
+    let celdas = [];
+    let turno = "X";
+    let terminado = false;
+    let puntos = { X: 0, O: 0 };
+
+    function crearTablero() {
+      tablero.innerHTML = "";
+      celdas = [];
+
+      for (let i = 0; i < 9; i++) {
+        const celda = document.createElement("div");
+        celda.classList.add("celda");
+        celda.dataset.index = i;
+        celda.addEventListener("click", () => jugar(i));
+        tablero.appendChild(celda);
+        celdas.push("");
+      }
+    }
+
+    function jugar(i) {
+      if (celdas[i] !== "" || terminado) return;
+      celdas[i] = turno;
+      tablero.children[i].textContent = turno;
+
+      const ganador = verificarGanador();
+      if (ganador) {
+        estado.textContent = `¡Ganó ${turno}!`;
+        terminado = true;
+        puntos[turno]++;
+        actualizarMarcador();
+        resaltarGanadoras(ganador);
+      } else if (celdas.every(c => c !== "")) {
+        estado.textContent = "¡Empate!";
+        terminado = true;
+      } else {
+        turno = turno === "X" ? "O" : "X";
+        estado.textContent = `Turno de: ${turno}`;
+      }
+    }
+
+    function verificarGanador() {
+      const combinaciones = [
+        [0,1,2], [3,4,5], [6,7,8],
+        [0,3,6], [1,4,7], [2,5,8],
+        [0,4,8], [2,4,6]
+      ];
+
+      for (let comb of combinaciones) {
+        const [a, b, c] = comb;
+        if (celdas[a] && celdas[a] === celdas[b] && celdas[a] === celdas[c]) {
+          return comb; // Devuelve la combinación ganadora
+        }
+      }
+      return null;
+    }
+
+    function resaltarGanadoras(indices) {
+      for (let i of indices) {
+        tablero.children[i].classList.add("ganadora");
+      }
+    }
+
+    function actualizarMarcador() {
+      puntosX.textContent = `X: ${puntos.X}`;
+      puntosO.textContent = `O: ${puntos.O}`;
+    }
+
+    function reiniciar() {
+      turno = "X";
+      terminado = false;
+      estado.textContent = `Turno de: ${turno}`;
+      crearTablero();
+    }
+
+    crearTablero();
+  </script>
+</body>
+</html>

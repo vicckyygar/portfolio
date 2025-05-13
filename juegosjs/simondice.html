@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simón Dice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      text-align: center;
+      background: linear-gradient(135deg, #0f0f0f, #1e1e1e);
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 20px;
+      color: #00ffc8;
+      text-shadow: 0 0 10px #00ffc8;
+    }
+
+    #level {
+      font-size: 1.5rem;
+      margin: 20px 0;
+    }
+
+    #game {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      gap: 15px;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .btn {
+      width: 100px;
+      height: 100px;
+      border: none;
+      border-radius: 20px;
+      opacity: 0.8;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .green  { background-color: #00ff88; }
+    .red    { background-color: #ff4d4d; }
+    .blue   { background-color: #4d94ff; }
+    .yellow { background-color: #fff700; }
+    .purple { background-color: #b266ff; }
+    .orange { background-color: #ff9900; }
+    .pink   { background-color: #ff66cc; }
+    .gray   { background-color: #a0a0a0; }
+
+    .btn.active {
+      opacity: 1 !important;
+      box-shadow: 0 0 25px white, 0 0 40px white;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #00ffc8;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffc8;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #00cfa0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simón Dice</h1>
+  <div id="game">
+    <div class="btn green" id="green"></div>
+    <div class="btn red" id="red"></div>
+    <div class="btn yellow" id="yellow"></div>
+    <div class="btn blue" id="blue"></div>
+    <div class="btn purple" id="purple"></div>
+    <div class="btn orange" id="orange"></div>
+    <div class="btn pink" id="pink"></div>
+    <div class="btn gray" id="gray"></div>
+  </div>
+  <p id="level">Nivel: 0</p>
+  <button onclick="empezarJuego()">Empezar</button>
+
+  <!-- SONIDOS -->
+  <audio id="sound-green" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></audio>
+  <audio id="sound-red" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></audio>
+  <audio id="sound-yellow" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></audio>
+  <audio id="sound-blue" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></audio>
+  <audio id="sound-purple" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></audio>
+  <audio id="sound-orange" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></audio>
+  <audio id="sound-pink" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></audio>
+  <audio id="sound-gray" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></audio>
+
+  <script>
+    const colores = ["green", "red", "yellow", "blue", "purple", "orange", "pink", "gray"];
+    let secuencia = [];
+    let secuenciaUsuario = [];
+    let nivel = 0;
+    let esperandoInput = false;
+    const modoDificil = true;
+
+    function empezarJuego() {
+      nivel = 0;
+      secuencia = [];
+      secuenciaUsuario = [];
+      document.getElementById("level").textContent = "Nivel: 0";
+      siguienteNivel();
+    }
+
+    function siguienteNivel() {
+      esperandoInput = false;
+      nivel++;
+      secuenciaUsuario = [];
+      document.getElementById("level").textContent = "Nivel: " + nivel;
+
+      let cantidadNuevosColores = modoDificil && nivel >= 10 ? 2 : 1;
+
+      for (let i = 0; i < cantidadNuevosColores; i++) {
+        let nuevoColor;
+        do {
+          nuevoColor = colores[Math.floor(Math.random() * colores.length)];
+        } while (modoDificil && secuencia[secuencia.length - 1] === nuevoColor);
+        secuencia.push(nuevoColor);
+      }
+
+      setTimeout(reproducirSecuencia, 500);
+    }
+
+    function reproducirSecuencia() {
+      let i = 0;
+      const velocidadBase = modoDificil ? 400 : 700;
+      const velocidad = Math.max(150, velocidadBase - (nivel * 10));
+
+      const intervalo = setInterval(() => {
+        activarColor(secuencia[i]);
+        i++;
+        if (i >= secuencia.length) {
+          clearInterval(intervalo);
+          esperandoInput = true;
+        }
+      }, velocidad);
+    }
+
+    function activarColor(color) {
+      const boton = document.getElementById(color);
+      const sonido = document.getElementById("sound-" + color);
+      if (sonido) {
+        sonido.currentTime = 0;
+        sonido.play().catch(() => {}); // Silenciar error si el usuario aún no interactuó
+      }
+      boton.classList.add("active");
+      setTimeout(() => boton.classList.remove("active"), 400);
+    }
+
+    colores.forEach(color => {
+      const boton = document.getElementById(color);
+      boton.addEventListener("click", () => {
+        if (!esperandoInput) return;
+        activarColor(color);
+        secuenciaUsuario.push(color);
+        comprobarInput(secuenciaUsuario.length - 1);
+      });
+    });
+
+    function comprobarInput(index) {
+      if (secuenciaUsuario[index] !== secuencia[index]) {
+        alert("¡Perdiste en el nivel " + nivel + "!\nSecuencia máxima alcanzada: " + secuencia.length + " colores.");
+        empezarJuego();
+        return;
+      }
+
+      if (secuenciaUsuario.length === secuencia.length) {
+        setTimeout(siguienteNivel, 1000);
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+

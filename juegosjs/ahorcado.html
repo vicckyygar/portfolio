@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego del Ahorcado</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .contenedor {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 42px;
+      color: #00796b;
+      margin-bottom: 20px;
+    }
+
+    #palabraOculta {
+      font-size: 36px;
+      letter-spacing: 10px;
+      font-weight: bold;
+      color: #37474f;
+      margin: 20px 0;
+    }
+
+    .letras {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .letras button {
+      font-size: 18px;
+      padding: 10px 15px;
+      background-color: #26a69a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .letras button:hover {
+      background-color: #00796b;
+      transform: scale(1.05);
+    }
+
+    .letras button:disabled {
+      background-color: #cfd8dc;
+      color: #78909c;
+      cursor: not-allowed;
+    }
+
+    #estado {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 25px;
+      color: #d32f2f;
+    }
+
+    .intentos {
+      font-size: 20px;
+      margin-top: 10px;
+      color: #f57c00;
+    }
+
+    .ahorcado {
+      width: 120px;
+      height: 180px;
+      margin: 30px auto;
+      position: relative;
+    }
+
+    .poste, .cuerda, .base {
+      background: #444;
+      position: absolute;
+    }
+
+    .poste {
+      width: 10px;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    .base {
+      width: 100px;
+      height: 10px;
+      bottom: 0;
+      left: 0;
+    }
+
+    .cuerda {
+      width: 80px;
+      height: 10px;
+      left: 0;
+      top: 0;
+      transform: translateX(10px);
+    }
+
+    .cabeza, .torso, .brazo-izq, .brazo-der, .pierna-izq, .pierna-der {
+      position: absolute;
+      background: #000;
+      display: none;
+    }
+
+    .cabeza {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      top: 20px;
+      left: 50px;
+    }
+
+    .torso {
+      width: 4px;
+      height: 40px;
+      top: 50px;
+      left: 64px;
+    }
+
+    .brazo-izq, .brazo-der {
+      width: 4px;
+      height: 30px;
+      top: 50px;
+    }
+
+    .brazo-izq {
+      left: 50px;
+      transform: rotate(-45deg);
+    }
+
+    .brazo-der {
+      left: 78px;
+      transform: rotate(45deg);
+    }
+
+    .pierna-izq, .pierna-der {
+      width: 4px;
+      height: 30px;
+      top: 90px;
+    }
+
+    .pierna-izq {
+      left: 55px;
+      transform: rotate(45deg);
+    }
+
+    .pierna-der {
+      left: 73px;
+      transform: rotate(-45deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Juego del Ahorcado</h1>
+    <div class="ahorcado">
+      <div class="poste"></div>
+      <div class="base"></div>
+      <div class="cuerda"></div>
+      <div class="cabeza"></div>
+      <div class="torso"></div>
+      <div class="brazo-izq"></div>
+      <div class="brazo-der"></div>
+      <div class="pierna-izq"></div>
+      <div class="pierna-der"></div>
+    </div>
+    <p id="palabraOculta"></p>
+    <div class="letras" id="letras"></div>
+    <p class="intentos" id="intentos">Te quedan 6 intentos</p>
+    <p id="estado"></p>
+  </div>
+
+  <script>
+    const palabras = ["javascript", "ahorcado", "programar", "desafio", "computadora", "oxigeno", "exquisito", "electrodomestico", "francia"];
+    const partesCuerpo = ["cabeza", "torso", "brazo-izq", "brazo-der", "pierna-izq", "pierna-der"];
+    const palabra = palabras[Math.floor(Math.random() * palabras.length)];
+    let progreso = Array(palabra.length).fill("_");
+    let intentos = 6;
+
+    document.getElementById("palabraOculta").textContent = progreso.join(" ");
+
+    function mostrarLetras() {
+      const contenedor = document.getElementById("letras");
+      for (let i = 97; i <= 122; i++) {
+        const letra = String.fromCharCode(i);
+        const btn = document.createElement("button");
+        btn.textContent = letra;
+        btn.onclick = () => adivinarLetra(letra, btn);
+        contenedor.appendChild(btn);
+      }
+    }
+
+    function adivinarLetra(letra, boton) {
+      boton.disabled = true;
+      let acierto = false;
+
+      for (let i = 0; i < palabra.length; i++) {
+        if (palabra[i] === letra) {
+          progreso[i] = letra;
+          acierto = true;
+        }
+      }
+
+      if (!acierto) {
+        intentos--;
+        mostrarParteCuerpo(6 - intentos);
+        document.getElementById("intentos").textContent = `Te quedan ${intentos} intentos.`;
+      }
+
+      document.getElementById("palabraOculta").textContent = progreso.join(" ");
+
+      if (!progreso.includes("_")) {
+        document.getElementById("estado").textContent = "¡Ganaste!";
+        deshabilitarBotones();
+      } else if (intentos === 0) {
+        document.getElementById("estado").textContent = `¡Perdiste! La palabra era: ${palabra}`;
+        deshabilitarBotones();
+      }
+    }
+
+    function mostrarParteCuerpo(numero) {
+      const parte = partesCuerpo[numero - 1];
+      const elemento = document.querySelector(`.${parte}`);
+      if (elemento) elemento.style.display = "block";
+    }
+
+    function deshabilitarBotones() {
+      document.querySelectorAll(".letras button").forEach(b => b.disabled = true);
+    }
+
+    mostrarLetras();
+  </script>
+</body>
+</html>
+
