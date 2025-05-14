@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Victoria García - Diseñadora Web</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
@@ -11,12 +11,16 @@
   <header>
     <h1 id="typing-title">Victoria García</h1>
     <p>Diseñadora web</p>
-  </header> 
-  
-  <button id="menu-toggle" class="hamburguesa">☰</button>
-  <button id="toggle-mode">🌓</button>
+    <div class="hamburger" id="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </header>
 
-  <nav class="menu">
+  <button id="dark-mode-toggle">🌓</button>
+
+  <nav class="menu" id="menu">
     <article class="foto">
       <img src="fotomia.jpg" alt="Foto de Victoria García" />
     </article>
@@ -28,160 +32,128 @@
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
+   <main>
+          <section id="sobre-mi" class="sobre-mi">
+              <h2>Sobre mí</h2>
+             <p>
+             Soy diseñadora web con más de 3 años de experiencia creando soluciones visuales funcionales y atractivas. 
+             Me especializo en interfaces centradas en el usuario, desarrollo con HTML, CSS y diseño responsive. 
+             Me apasiona mejorar constantemente y aportar creatividad a cada proyecto.</p>
+         </section>
 
-  <main style="margin-left: 240px; padding: 2rem;">
-    <section id="sobre-mi" class="sobre-mi">
-      <h2>Sobre mí</h2>
-      <p>
-        Soy diseñadora web con más de 3 años de experiencia creando soluciones visuales funcionales y atractivas. 
-        Me especializo en interfaces centradas en el usuario, desarrollo con HTML, CSS y principios de diseño responsivo. 
-        Me apasiona mejorar constantemente y aportar creatividad a cada proyecto.
-      </p>
-    </section>
+       <section id="habilidades">
+           <h2>Habilidades</h2>
+          <ul class="skills">
+              <li>HTML y CSS</li>
+              <li>Diseño de Interfaces</li>
+              <li>Diseño Responsive</li>
+              <li>Creatividad visual</li>
+              <li>Trabajo en equipo</li>
+             <li>Enfoque centrado en el Usuario</li>
+             <li>JavaScript básico</li>
+             <li>Gestión de tiempo</li>
+          </ul>
+      </section>
 
-    <section id="habilidades">
-      <h2>Habilidades</h2>
-      <ul class="skills">
-        <li>HTML y CSS</li>
-        <li>Diseño de Interfaces</li>
-        <li>Diseño Responsive</li>
-        <li>Creatividad visual</li>
-        <li>Trabajo en equipo</li>
-        <li>Enfoque centrado en el Usuario</li>
-        <li>JavaScript básico</li>
-        <li>Gestión de tiempo</li>
-      </ul>
-    </section>
+     <section id="educacion">
+         <h2>Educación</h2>
+         <p><strong>Secundaria Técnico en Programación</strong><br/>Escuela Secundaria Técnica - 2019 - actualidad</p>
+        </section>
+        
+      <section id="proyectos">
+          <h2>🖥️ Proyectos Web</h2>
+             <div class="proyectos">
+                 <div class="card">
+                     <h3>☕ Cafetería "Las Tortas"</h3>
+                           <p>Sitio web para una cafetería ficticia, con menú digital interactivo y sistema de acceso para clientes frecuentes con beneficios exclusivos.</p>
+                           <a href="https://glistening-praline-b3c7bb.netlify.app/" target="_blank">Ver proyecto</a> 
+                    </div>
 
-    <section id="educacion">
-      <h2>Educación</h2>
-      <p><strong>Secundaria Técnico en Programación</strong><br/>Escuela Secundaria Técnica - 2019 - actualidad</p>
-    </section>
+                 <div class="card">
+                     <h3>🌍 Turismo Liv</h3>
+                         <p>Plataforma virtual para una agencia de viajes. Incluye galería de destinos, información detallada y contacto directo.</p>
+                         <a href="https://sparkling-kleicha-3eefdf.netlify.app/" target="_blank">Ver proyecto</a>
+                    </div>
 
-    <section id="proyectos">
-  <h2>🖥️ Proyectos Web</h2>
-  <div class="proyectos">
-    <div class="card">
-      <h3>☕ Cafetería "Las Tortas"</h3>
-      <p>Sitio web para una cafetería ficticia, con menú digital interactivo y sistema de acceso para clientes frecuentes con beneficios exclusivos.</p>
-      <a href="https://glistening-praline-b3c7bb.netlify.app/" target="_blank">Ver proyecto</a>
-    </div>
+                 <div class="card">
+                     <h3>🎉 Festival 2025</h3>
+                         <p>Micrositio interactivo con temática de festival, desarrollado con HTML, CSS y JavaScript. Incluye elementos animados y diseño dinámico.</p>
+                         <a href="https://verdant-panda-aa6855.netlify.app/" target="_blank">Ver proyecto</a>
+                  </div>
 
-    <div class="card">
-      <h3>🌍 Turismo Liv</h3>
-      <p>Plataforma virtual para una agencia de viajes. Incluye galería de destinos, información detallada y contacto directo.</p>
-      <a href="https://sparkling-kleicha-3eefdf.netlify.app/" target="_blank">Ver proyecto</a>
-    </div>
+                 <div class="card">
+                     <h3>🧢 Luna Ropa Urbana</h3>
+                         <p>Sitio web para marca de indumentaria urbana. Galería de productos, diseño visual moderno y enfoque juvenil.</p>
+                         <a href="https://tubular-sprinkles-30f3c0.netlify.app/" target="_blank">Ver proyecto</a>
+                  </div>
 
-    <div class="card">
-      <h3>🎉 Festival 2025</h3>
-      <p>Micrositio interactivo con temática de festival, desarrollado con HTML, CSS y JavaScript. Incluye elementos animados y diseño dinámico.</p>
-      <a href="https://verdant-panda-aa6855.netlify.app/" target="_blank">Ver proyecto</a>
-    </div>
+                 <div class="card">
+                     <h3>💇 Peluquería Estilo</h3>
+                         <p>Web para salón de peluquería con información de servicios, turnos y galería. Enfocado en presencia online profesional.</p>
+                         <a href="https://majestic-pothos-500f26.netlify.app/" target="_blank">Ver proyecto</a>
+                  </div>
 
-    <div class="card">
-      <h3>🧢 Luna Ropa Urbana</h3>
-      <p>Sitio web para marca de indumentaria urbana. Galería de productos, diseño visual moderno y enfoque juvenil.</p>
-      <a href="https://tubular-sprinkles-30f3c0.netlify.app/" target="_blank">Ver proyecto</a>
-    </div>
+                 <div class="card">
+                     <h3>🍲 Cocina Rápida</h3>
+                         <p>Aplicación web con recetas interactivas, agrupadas por categorías. Incluye buscador, favoritos y visualización dinámica.</p>
+                         <a href="https://incredible-chebakia-a830f1.netlify.app/" target="_blank">Ver proyecto</a>
+                    </div>
+             </div>
 
-    <div class="card">
-      <h3>💇 Peluquería Estilo</h3>
-      <p>Web para salón de peluquería con información de servicios, turnos y galería. Enfocado en presencia online profesional.</p>
-      <a href="https://majestic-pothos-500f26.netlify.app/" target="_blank">Ver proyecto</a>
-    </div>
+            <h2>🎮 Juegos Interactivos</h2>
+                  <div class="proyectos">
+                     <div class="card">
+                         <h3>✊✋✌ Piedra, Papel o Tijera</h3>
+                             <p>Versión digital del clásico juego. Rondas interactivas, diseño responsivo y lógica implementada con JavaScript.</p>
+                              <a href="./juegosjs/p-p-t.html" target="_blank">Jugar ahora</a>
+                        </div>
+                     
+                        <div class="card">
+                           <h3>🧠 Juego de Memoria</h3>
+                                <p>Entrena tu memoria con este juego visual. Incluye sistema de puntuación y niveles de dificultad.</p>
+                                <a href="./juegosjs/mem.html" target="_blank">Jugar ahora</a>
+                          </div>
 
-    <div class="card">
-      <h3>🍲 Cocina Rápida</h3>
-      <p>Aplicación web con recetas interactivas, agrupadas por categorías. Incluye buscador, favoritos y visualización dinámica.</p>
-      <a href="https://incredible-chebakia-a830f1.netlify.app/" target="_blank">Ver proyecto</a>
-    </div>
-  </div>
+                     <div class="card">
+                         <h3>🧩 Rompecabezas Deslizante</h3>
+                              <p>Completa la imagen moviendo las piezas. Juego clásico hecho con HTML, CSS y JavaScript puro.</p>
+                              <a href="./juegosjs/rompe.html" target="_blank">Jugar ahora</a>
+                      </div>
 
-  <h2>🎮 Juegos Interactivos</h2>
-  <div class="proyectos">
-    <div class="card">
-      <h3>✊✋✌ Piedra, Papel o Tijera</h3>
-      <p>Versión digital del clásico juego. Rondas interactivas, diseño responsivo y lógica implementada con JavaScript.</p>
-      <a href="./juegosjs/p-p-t.html" target="_blank">Jugar ahora</a>
-    </div>
+                     <div class="card">
+                         <h3>🟢 Simón Dice</h3>
+                             <p>Juego de memoria auditiva con secuencias interactivas y niveles de dificultad creciente.</p>
+                             <a href="./juegosjs/simondice.html" target="_blank">Jugar ahora</a>
+                       </div>
 
-    <div class="card">
-      <h3>🧠 Juego de Memoria</h3>
-      <p>Entrena tu memoria con este juego visual. Incluye sistema de puntuación y niveles de dificultad.</p>
-      <a href="./juegosjs/mem.html" target="_blank">Jugar ahora</a>
-    </div>
+                       <div class="card">
+                          <h3>⭕ Ta-Te-Ti</h3>
+                              <p>Versión digital del clásico juego de estrategia. Ideal para dos jugadores.</p>
+                             <a href="./juegosjs/tateti.html" target="_blank">Jugar ahora</a>
+                        </div>
 
-    <div class="card">
-      <h3>🧩 Rompecabezas Deslizante</h3>
-      <p>Completa la imagen moviendo las piezas. Juego clásico hecho con HTML, CSS y JavaScript puro.</p>
-      <a href="./juegosjs/rompe.html" target="_blank">Jugar ahora</a>
-    </div>
-   
-    <div class="card">
-      <h3>🟢 Simón Dice</h3>
-       <p>Juego de memoria auditiva con secuencias interactivas y niveles de dificultad creciente.</p>
-       <a href="./juegosjs/simondice.html" target="_blank">Jugar ahora</a>
-    </div>
 
-    <div class="card">
-        <h3>⭕ Ta-Te-Ti</h3>
-         <p>Versión digital del clásico juego de estrategia. Ideal para dos jugadores.</p>
-          <a href="./juegosjs/tateti.html" target="_blank">Jugar ahora</a>
-    </div>
+                       <div class="card">
+                             <h3>🔤 Ahorcado</h3>
+                                  <p>Adivina la palabra antes de que sea tarde. Juego educativo y divertido.</p>
+                                 <a href="./juegosjs/ahorcado.html" target="_blank">Jugar ahora</a>
+                       </div>
+                 </div>
+      </section>
+      
 
-   <div class="card">
-      <h3>🔤 Ahorcado</h3>
-       <p>Adivina la palabra antes de que sea tarde. Juego educativo y divertido.</p>
-       <a href="./juegosjs/ahorcado.html" target="_blank">Jugar ahora</a>
-    </div>
-  </div>
- </section>
+        <section id="contacto">
+           <h2>Contacto</h2>
+               <p>Email: victoriasolg06@gmail.com</p>
+              <p>También podés escribirme por WhatsApp: 
+                <a href="https://wa.me/5491123551435" target="_blank">Enviar mensaje</a></p>
+        </section>
+  </main>
 
- <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Email: victoriasolg06@gmail.com</p>
-    <p>También podés escribirme por WhatsApp: <a href="https://wa.me/5491123551435" target="_blank">Enviar mensaje</a></p>
- </section>
-  
-</main>
-
-  <script>
-    const title = document.getElementById("typing-title");
-    const text = "Victoria García";
-    let index = 0;
-
-    function type() {
-      if (index < text.length) {
-        title.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 100);
-      }
-    }
-
-    title.textContent = "";
-    type();
-
-    const toggleBtn = document.getElementById('toggle-mode');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-    });
-     const toggleButton = document.getElementById('menu-toggle');
-    const menu = document.querySelector('.menu');
-    const links = menu.querySelectorAll('a');
-
-    toggleButton.addEventListener('click', () => {
-      menu.classList.toggle('visible');
-    });
-
-    // Cierra el menú al hacer clic en un enlace (solo en móvil)
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          menu.classList.remove('visible');
-        }
-      });
-  </script>
+     
+  <script src="prueba2.js"></script>
 </body>
 </html>
+
+
 
