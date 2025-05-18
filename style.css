@@ -1,4 +1,4 @@
- /* paleta modooscuro{
+  /* paleta modooscuro{
      fondo: 
      botones:
      letras:
@@ -294,13 +294,13 @@
 
     header {
       padding: 1rem;
-        font-size: 16px;
+        font-size: 18px;
     }
 
   #dark-mode-toggle{
-    width: 33px;
-    height: 33px;
-    font-size: 0.9rem;
+    width: 43px;
+    height: 43px;
+    font-size: 1rem;
     bottom: 1rem;
     right: 0.6rem;
     }
@@ -327,7 +327,7 @@
 
   /* Ocultar el menú lateral por defecto en móviles */
   .menu {
-    width: 160px;
+    width: 170px;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
   }
@@ -338,12 +338,12 @@
   }
 
   .menu .item a {
-      font-size: 14px;
+      font-size: 16px;
   }
 
   .foto img {
-      height: 85px;
-      width: 85px;
+      height: 96px;
+      width: 96px;
   }
   main{
      margin-left: 10px; 
@@ -352,19 +352,19 @@
   main h2 {
      color: #3c3145;
      margin-top: 2rem;
-     font-size: 15px;
+     font-size: 16px;
     }
 
     .sobre-mi p,
       #habilidades li,
       #educacion p {
        color: #663b7b;
-      font-size: 14px;
+      font-size: 15px;
      line-height: 1.2;
     }
     
     #proyectos {
-       padding: 0.5rem;
+       padding: 1rem;
         margin: auto;
         max-width: 100%;
        display: flex;
@@ -377,8 +377,8 @@
      flex-direction: column;
      align-items: center;
      gap: 1rem;
-     padding: 0;
-     font-size: 16px;
+     padding: 7px;
+     font-size: 18px;
     }
 
     .card {
@@ -388,27 +388,26 @@
     }
 
   .card h3 {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .card p {
-      font-size: 13px;
+      font-size: 15px;
   }
 
   .card a {
-      font-size: 13px;
+      font-size: 15px;
   }
   #contacto{
      border-color: 1px solid white;
-     padding: 20px 20px 20px 20px;
-     margin-top: 5px;
+     padding: 30px 20px 30px 20px;
   }
     #contacto h2 {
       top: 0;
-      font-size: 14px;
+      font-size: 16px;
    }
    
    #contacto p {
-      font-size: 13px;
+      font-size: 15px;
 }
 }
