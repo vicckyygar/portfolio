@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 h1 {
@@ -26,7 +26,7 @@ h1 {
 
 #shuffleButton {
   background: #2ecc71;
-  margin-top: 30px;
+  margin-top: 15px;
   color: white;
   border: none;
   padding: 12px 24px;
