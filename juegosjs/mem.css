@@ -4,7 +4,7 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: rgb(240, 214, 178);
+      background: rgb(53, 51, 50);
       color: #333;
       margin: 0;
       padding: 0;
@@ -16,7 +16,7 @@
     }
 
     .contenedor {
-      background: white;
+      background: rgb(133, 129, 129);
       max-width: 600px;
       width: 90%;
       padding: 40px 30px;
