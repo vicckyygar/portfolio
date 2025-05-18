@@ -339,12 +339,12 @@
 
   .menu .item a {
       font-size: 19px;
-      gap: 10px;
+      gap: 16px;
   }
 
   .foto img {
-      height: 100px;
-      width: 100px;
+      height: 107px;
+      width: 107px;
   }
   main{
      margin-left: 10px; 
@@ -383,33 +383,33 @@
     }
 
     .card {
-       padding: 50px 60px 50px 60px;
-      width: 90%; 
+       padding: 45px 55px 45px 55px;
+      width: 95%; 
       max-width: 300px;
        border-color: 1px solid white;
     }
 
   .card h3 {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .card p {
-      font-size: 15px;
+      font-size: 16px;
   }
 
   .card a {
-      font-size: 15px;
+      font-size: 16px;
   }
   #contacto{
      border-color: 1px solid white;
-     padding: 30px 20px 30px 20px;
+     padding: 30px 20px 38px 20px;
   }
     #contacto h2 {
       top: 0;
-      font-size: 16px;
+      font-size: 17px;
    }
    
    #contacto p {
-      font-size: 15px;
+      font-size: 16px;
 }
 }
