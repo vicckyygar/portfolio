@@ -338,7 +338,8 @@
   }
 
   .menu .item a {
-      font-size: 18px;
+      font-size: 19px;
+      gap: 10px;
   }
 
   .foto img {
