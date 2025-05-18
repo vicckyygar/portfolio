@@ -8,8 +8,13 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   background: linear-gradient(135deg, #e0f7fa, #fafafa);
-  padding-top: 40px;
   color: #333;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 10px;
 }
 
 header {
@@ -21,15 +26,15 @@ h1 {
   color: #2c3e50;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   letter-spacing: 1px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 #shuffleButton {
   background: #2ecc71;
-  margin-top: 15px;
+  margin-top: 10px;
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 16px 26px;
   font-size: 18px;
   font-weight: bold;
   border-radius: 8px;
@@ -52,7 +57,7 @@ h1 {
 
 #board {
   display: grid;
-  grid-template-columns: repeat(4, 90px);
+  grid-template-columns: repeat(4, 100px);
   gap: 10px;
   margin: 0 auto;
   padding: 20px;
@@ -91,15 +96,6 @@ h1 {
   box-shadow: none;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 20px 10px;
-}
-
 main {
   width: 100%;
   max-width: 400px;
@@ -112,9 +108,8 @@ main {
 #level{
   background-color:  #b97a7c;
   padding: 10px 10px;
-  margin: 5px 0px 10px 0px;
+  margin: 20px 10px 10px 10px;
   border-radius: 8px;
-
 }
 
 @media (max-width: 480px) {
