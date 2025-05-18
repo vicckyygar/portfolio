@@ -1,237 +1,286 @@
-  * {
-    box-sizing: border-box;
-  }
+* {
+  box-sizing: border-box;
+}
 
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+h1 {
+  font-size: 32px;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+#palabraOculta {
+  font-size: 28px;
+  letter-spacing: 12px;
+  font-weight: bold;
+  color: #37474f;
+  margin: 20px 0;
+  word-break: break-word;
+}
+
+.letras {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.letras button {
+  font-size: 18px;
+  padding: 10px 15px;
+  background-color: #26a69a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.letras button:hover:not(:disabled) {
+  background-color: #00796b;
+  transform: scale(1.05);
+}
+
+.letras button:disabled {
+  background-color: #cfd8dc;
+  color: #78909c;
+  cursor: not-allowed;
+}
+
+#estado {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 25px;
+  color: #d32f2f;
+}
+
+.intentos {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #f57c00;
+}
+
+.ahorcado {
+  width: 200px;
+  height: 300px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.poste,
+.base,
+.cuerda,
+.cuerda-vertical {
+  background: #444;
+  position: absolute;
+}
+
+.poste {
+  width: 10px;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.base {
+  width: 120px;
+  height: 10px;
+  bottom: 0;
+  left: 0;
+}
+
+.cuerda {
+  width: 80px;
+  height: 10px;
+  left: 0;
+  top: 0;
+  transform: translateX(10px);
+}
+
+.cuerda-vertical {
+  width: 4px;
+  height: 30px;
+  top: 10px;
+  left: 94px;
+  display: none;
+}
+
+.cabeza,
+.torso,
+.brazo-izq,
+.brazo-der,
+.pierna-izq,
+.pierna-der {
+  position: absolute;
+  background: #000;
+  display: none;
+}
+
+.cabeza {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 20px;
+  left: 70px;
+}
+
+.torso {
+  width: 6px;
+  height: 80px;
+  top: 70px;
+  left: 94px;
+}
+
+.brazo-izq,
+.brazo-der {
+  width: 6px;
+  height: 60px;
+  top: 70px;
+}
+
+.brazo-izq {
+  left: 60px;
+  transform: rotate(-45deg);
+}
+
+.brazo-der {
+  left: 120px;
+  transform: rotate(45deg);
+}
+
+.pierna-izq,
+.pierna-der {
+  width: 6px;
+  height: 60px;
+  top: 150px;
+}
+
+.pierna-izq {
+  left: 70px;
+  transform: rotate(45deg);
+}
+
+.pierna-der {
+  left: 110px;
+  transform: rotate(-45deg);
+}
+
+#reiniciar {
+  margin-top: 25px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#reiniciar:hover {
+  background-color: #004d40;
+  transform: scale(1.05);
+}
+
+@media (max-width: 700px) {
   body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #e0f7fa, #ffffff);
-    color: #333;
+    padding: 0;
     margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
   }
 
   .contenedor {
-    background-color: white;
-    padding: 20px 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
+    width: 250vw;
+    height: 250vh;
+    padding: 40px 35px;
+    border-radius: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   h1 {
-    font-size: 32px;
-    color: #00796b;
-    margin-bottom: 20px;
+    font-size: 28px;
   }
 
   #palabraOculta {
-    font-size: 28px;
-    letter-spacing: 12px;
-    font-weight: bold;
-    color: #37474f;
-    margin: 20px 0;
+    font-size: 24px;
+    letter-spacing: 0.5em;
     word-break: break-word;
   }
 
   .letras {
-    margin-top: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+    gap: 8px;
   }
 
   .letras button {
-    font-size: 18px;
-    padding: 10px 15px;
-    background-color: #26a69a;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    font-size: 24px;
+    padding: 12px 12px;
   }
 
-  .letras button:hover:not(:disabled) {
-    background-color: #00796b;
-    transform: scale(1.05);
-  }
-
-  .letras button:disabled {
-    background-color: #cfd8dc;
-    color: #78909c;
-    cursor: not-allowed;
-  }
-
-  #estado {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 25px;
-    color: #d32f2f;
-  }
-
+  #estado,
   .intentos {
-    font-size: 18px;
-    margin-top: 10px;
-    color: #f57c00;
+    font-size: 16px;
   }
 
   .ahorcado {
-    width: 200px;
-    height: 300px;
-    margin: 30px auto;
-    position: relative;
-  }
-
-  .poste, .cuerda, .base {
-    background: #444;
-    position: absolute;
-  }
-
-  .poste {
-    width: 10px;
-    height: 100%;
-    left: 0;
-    top: 0;
-  }
-
-  .base {
-    width: 120px;
-    height: 10px;
-    bottom: 0;
-    left: 0;
-  }
-
-  .cuerda {
-    width: 80px;
-    height: 10px;
-    left: 0;
-    top: 0;
-    transform: translateX(10px);
-  }
-
-  .cabeza, .torso, .brazo-izq, .brazo-der, .pierna-izq, .pierna-der {
-    position: absolute;
-    background: #000;
-    display: none;
+    width: 160px;
+    height: 240px;
   }
 
   .cabeza {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
     top: 20px;
-    left: 70px;
+    left: 60px;
   }
 
   .torso {
-    width: 6px;
-    height: 80px;
-    top: 70px;
-    left: 94px;
-  }
-
-  .brazo-izq, .brazo-der {
-    width: 6px;
     height: 60px;
-    top: 70px;
+    left: 82px;
   }
 
   .brazo-izq {
-    left: 60px;
-    transform: rotate(-45deg);
+    left: 52px;
   }
 
   .brazo-der {
-    left: 120px;
-    transform: rotate(45deg);
-  }
-
-  .pierna-izq, .pierna-der {
-    width: 6px;
-    height: 60px;
-    top: 150px;
+    left: 112px;
   }
 
   .pierna-izq {
-    left: 70px;
-    transform: rotate(45deg);
+    left: 60px;
   }
 
   .pierna-der {
-    left: 110px;
-    transform: rotate(-45deg);
+    left: 102px;
   }
 
-  /* === Móviles === */
-  @media (max-width: 768px) {
-    body {
-      padding: 50px;
-    }
-
-    .contenedor {
-      padding: 60px 40px;
-      max-width: 200%;
-    }
-
-    h1 {
-      font-size: 100px;
-    }
-
-    #palabraOculta {
-      font-size: 39px;
-      letter-spacing: 20px;
-    }
-
-    .letras button {
-      font-size: 50px;
-      padding: 24px 28px;
-    }
-
-    #estado {
-      font-size: 60px;
-    }
-
-    .intentos {
-      font-size: 50px;
-    }
-
-    .ahorcado {
-      width: 220px;
-      height: 260px;
-    }
-
-    .cabeza {
-      width: 50px;
-      height: 50px;
-      top: 15px;
-      left: 55px;
-    }
-
-    .torso {
-      height: 70px;
-      left: 79px;
-    }
-
-    .brazo-izq {
-      left: 50px;
-    }
-
-    .brazo-der {
-      left: 110px;
-    }
-
-    .pierna-izq {
-      left: 60px;
-    }
-
-    .pierna-der {
-      left: 97px;
-    }
+  #reiniciar {
+    font-size: 16px;
+    padding: 10px 16px;
+    margin-top: 20px;
   }
+}
