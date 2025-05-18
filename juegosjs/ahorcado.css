@@ -172,44 +172,44 @@
   /* === Móviles === */
   @media (max-width: 768px) {
     body {
-      padding: 18px;
+      padding: 28px;
     }
 
     .contenedor {
-      padding: 40px 30px;
+      padding: 60px 40px;
       max-width: 100%;
     }
 
     h1 {
-      font-size: 30px;
+      font-size: 50px;
     }
 
     #palabraOculta {
-      font-size: 26px;
-      letter-spacing: 18px;
+      font-size: 30px;
+      letter-spacing: 20px;
     }
 
     .letras button {
-      font-size: 29px;
-      padding: 18px 16px;
+      font-size: 31px;
+      padding: 24px 28px;
     }
 
     #estado {
-      font-size: 18px;
+      font-size: 30px;
     }
 
     .intentos {
-      font-size: 19px;
+      font-size: 30px;
     }
 
     .ahorcado {
-      width: 180px;
+      width: 220px;
       height: 260px;
     }
 
     .cabeza {
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
       top: 20px;
       left: 60px;
     }
