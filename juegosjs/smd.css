@@ -2,24 +2,24 @@
   box-sizing: border-box;
 }
 
-body {
-  text-align: center;
-  background: linear-gradient(135deg, #0f0f0f, #1e1e1e);
-  color: white;
-  font-family: 'Roboto', sans-serif;
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  min-height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #0f0f0f, #1e1e1e);
+  color: white;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 h1 {
   font-size: 3rem;
-  margin-top: 20px;
+  margin-top: 30px;
   color: #00ffc8;
   text-shadow: 0 0 10px #00ffc8;
 }
@@ -31,10 +31,11 @@ h1 {
 
 #game {
   display: grid;
-  grid-template-columns: repeat(4, 100px);
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
   justify-content: center;
-  margin: 30px 0;
+  margin: 30px 20px;
+  max-width: 420px;
 }
 
 .btn {
@@ -44,7 +45,7 @@ h1 {
   border-radius: 20px;
   opacity: 0.8;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.3s ease;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
@@ -53,6 +54,16 @@ h1 {
   opacity: 1;
 }
 
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn:focus {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+/* Colores */
 .green  { background-color: #00ff88; }
 .red    { background-color: #ff4d4d; }
 .blue   { background-color: #4d94ff; }
@@ -85,25 +96,21 @@ button:hover {
   background-color: #00cfa0;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 600px) {
-  body {
-    padding: 10px;
-    overflow: auto;
-  }
-
   h1 {
     font-size: 2rem;
-    margin-top: 15px;
+    margin-top: 20px;
   }
 
   #level {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   #game {
-    grid-template-columns: repeat(2, 70px);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 200px;
   }
 
   .btn {
@@ -112,7 +119,7 @@ button:hover {
   }
 
   button {
-    font-size: 2rem;
-    padding: 15px 15px;
+    font-size: 1.2rem;
+    padding: 15px 20px;
   }
 }
