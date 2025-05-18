@@ -9,7 +9,7 @@ body {
   text-align: center;
   background: linear-gradient(135deg, #e0f7fa, #fafafa);
   color: #333;
-  min-height: 100px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,9 +29,16 @@ h1 {
   margin-bottom: 5px;
 }
 
+main {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #shuffleButton {
   background: #2ecc71;
-  margin-top: 10px;
   color: white;
   border: none;
   padding: 16px 26px;
@@ -41,7 +48,8 @@ h1 {
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  margin-bottom: 20px;
+  margin: 10px 0 20px;
+  width: fit-content;
 }
 
 #shuffleButton:hover {
@@ -59,13 +67,13 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, 100px);
   gap: 10px;
-  margin: 0 auto;
   padding: 20px;
   background: #ffffffcc;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   width: fit-content;
   position: relative;
+  margin: 0 auto;
 }
 
 .tile {
@@ -81,7 +89,7 @@ h1 {
   justify-content: center;
   cursor: pointer;
   user-select: none;
-  transition: transform 0.2s ease, background 0.3s ease, top 0.2s ease, left 0.2s ease;
+  transition: transform 0.2s ease, background 0.3s ease;
   position: relative;
 }
 
@@ -96,20 +104,13 @@ h1 {
   box-shadow: none;
 }
 
-main {
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-#level{
-  background-color:  #b97a7c;
-  padding: 10px 10px;
-  margin: 20px 10px 10px 10px;
+#level {
+  background-color: #b97a7c;
+  color: white;
+  padding: 10px;
+  margin: 20px 10px 10px;
   border-radius: 8px;
+  font-weight: bold;
 }
 
 @media (max-width: 480px) {
@@ -118,17 +119,13 @@ main {
     gap: 10px;
   }
 
-  #shuffleButton {
-    width: 100%;
-  }
-
+  #shuffleButton,
   #level {
     width: 100%;
   }
 
   #board {
-    max-width: 100%;
-    margin: 0 auto;
     grid-template-columns: repeat(3, 100px);
+    max-width: 100%;
   }
 }
