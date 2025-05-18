@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  background: linear-gradient(135deg, #0f0f0f, #1e1e1e);
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #00ffc8;
+  text-shadow: 0 0 10px #00ffc8;
+}
+
+#level {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+#game {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 15px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.btn {
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 20px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.green  { background-color: #00ff88; }
+.red    { background-color: #ff4d4d; }
+.blue   { background-color: #4d94ff; }
+.yellow { background-color: #fff700; }
+.purple { background-color: #b266ff; }
+.orange { background-color: #ff9900; }
+.pink   { background-color: #ff66cc; }
+.gray   { background-color: #a0a0a0; }
+
+.btn.active {
+  opacity: 1 !important;
+  box-shadow: 0 0 25px white, 0 0 40px white;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #00ffc8;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffc8;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #00cfa0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+    overflow: auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-top: 15px;
+  }
+
+  #level {
+    font-size: 1.2rem;
+  }
+
+  #game {
+    grid-template-columns: repeat(2, 80px);
+    gap: 10px;
+  }
+
+  .btn {
+    width: 80px;
+    height: 80px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 10px 10px;
+  }
+}

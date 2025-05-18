@@ -1,0 +1,237 @@
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #ffffff);
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .contenedor {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  h1 {
+    font-size: 32px;
+    color: #00796b;
+    margin-bottom: 20px;
+  }
+
+  #palabraOculta {
+    font-size: 28px;
+    letter-spacing: 12px;
+    font-weight: bold;
+    color: #37474f;
+    margin: 20px 0;
+    word-break: break-word;
+  }
+
+  .letras {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .letras button {
+    font-size: 18px;
+    padding: 10px 15px;
+    background-color: #26a69a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .letras button:hover:not(:disabled) {
+    background-color: #00796b;
+    transform: scale(1.05);
+  }
+
+  .letras button:disabled {
+    background-color: #cfd8dc;
+    color: #78909c;
+    cursor: not-allowed;
+  }
+
+  #estado {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 25px;
+    color: #d32f2f;
+  }
+
+  .intentos {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #f57c00;
+  }
+
+  .ahorcado {
+    width: 200px;
+    height: 300px;
+    margin: 30px auto;
+    position: relative;
+  }
+
+  .poste, .cuerda, .base {
+    background: #444;
+    position: absolute;
+  }
+
+  .poste {
+    width: 10px;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .base {
+    width: 120px;
+    height: 10px;
+    bottom: 0;
+    left: 0;
+  }
+
+  .cuerda {
+    width: 80px;
+    height: 10px;
+    left: 0;
+    top: 0;
+    transform: translateX(10px);
+  }
+
+  .cabeza, .torso, .brazo-izq, .brazo-der, .pierna-izq, .pierna-der {
+    position: absolute;
+    background: #000;
+    display: none;
+  }
+
+  .cabeza {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 20px;
+    left: 70px;
+  }
+
+  .torso {
+    width: 6px;
+    height: 80px;
+    top: 70px;
+    left: 94px;
+  }
+
+  .brazo-izq, .brazo-der {
+    width: 6px;
+    height: 60px;
+    top: 70px;
+  }
+
+  .brazo-izq {
+    left: 60px;
+    transform: rotate(-45deg);
+  }
+
+  .brazo-der {
+    left: 120px;
+    transform: rotate(45deg);
+  }
+
+  .pierna-izq, .pierna-der {
+    width: 6px;
+    height: 60px;
+    top: 150px;
+  }
+
+  .pierna-izq {
+    left: 70px;
+    transform: rotate(45deg);
+  }
+
+  .pierna-der {
+    left: 110px;
+    transform: rotate(-45deg);
+  }
+
+  /* === Móviles === */
+  @media (max-width: 768px) {
+    body {
+      padding: 18px;
+    }
+
+    .contenedor {
+      padding: 40px 30px;
+      max-width: 100%;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    #palabraOculta {
+      font-size: 26px;
+      letter-spacing: 18px;
+    }
+
+    .letras button {
+      font-size: 29px;
+      padding: 18px 16px;
+    }
+
+    #estado {
+      font-size: 18px;
+    }
+
+    .intentos {
+      font-size: 19px;
+    }
+
+    .ahorcado {
+      width: 180px;
+      height: 260px;
+    }
+
+    .cabeza {
+      width: 45px;
+      height: 45px;
+      top: 20px;
+      left: 60px;
+    }
+
+    .torso {
+      height: 70px;
+      left: 82px;
+    }
+
+    .brazo-izq {
+      left: 52px;
+    }
+
+    .brazo-der {
+      left: 112px;
+    }
+
+    .pierna-izq {
+      left: 60px;
+    }
+
+    .pierna-der {
+      left: 102px;
+    }
+  }

@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(57, 56, 56);
+    display: flex;
+   flex-direction: column;
+    align-items: center;
+   justify-content: flex-start; /* esto se sobreescribirá en móviles */
+   padding: 20px;
+   color: white;
+   min-height: 100vh;
+  }
+
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  #tablero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+      width: 100%;
+      max-width: 420px;
+  }
+
+  .card {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      perspective: 1000px;
+      position: relative;
+  }
+
+  .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+  }
+
+  .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+  .card.matched .card-inner {
+      filter: brightness(1.3);
+      cursor: default;
+      animation: matchPop 0.4s ease;
+  }
+
+  .card-front,
+  .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      user-select: none;
+      transition: background-color 0.4s ease, transform 0.4s ease;
+  }
+
+  .card-front {
+      background: #ffffff;
+      color: black;
+  }
+
+  .card-back {
+      background: #4b14e0;
+      color: white;
+      transform: rotateY(180deg);
+  }
+
+    /* Cambio de color al hacer match */
+  .card.matched .card-back{
+      background-color: #00c853; /* Verde llamativo */
+      color: rgb(138, 59, 59);
+  }
+
+  #moves {
+      font-size: 20px;
+      margin-top: 10px;
+      font-weight: 500;
+      color: #fdf9f9;
+  }
+
+  #reiniciar {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3d21f3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+  }
+
+  #reiniciar:hover {
+      background-color: #1976d2;
+  }
+
+@media (max-width: 600px) {
+     body {
+        justify-content: center;
+        font-size: 2rem;
+        padding: 90px;
+     }
+
+      #tablero {
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+      }
+     .card{
+      aspect-ratio: 1/1;
+     }
+
+      .card-front,
+      .card-back {
+        font-size: 5rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #reiniciar {
+        width: 100%;
+        padding: 15px;
+        font-size: 3rem;
+      }
+      #moves{
+        font-size: 1.5rem;
+      }
+}
+
+
+    @keyframes matchPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+
+

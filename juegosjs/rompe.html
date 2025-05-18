@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rompecabezas</title>
+  <link rel="stylesheet" href="rompe.css" />
+</head>
+<body>
+<header>
+  <h1>Rompecabezas Deslizante</h1>
+</header>
+
+<main>
+  <div class="controls">
+    <select id="level" onchange="changeLevel()">
+      <option value="3">Fácil (3x3)</option>
+      <option value="4" selected>Medio (4x4)</option>
+      <option value="5">Difícil (5x5)</option>
+    </select>
+    <button id="shuffleButton" onclick="init()">Mezclar</button>
+  </div>
+
+  <div id="board"></div>
+</main>
+
+
+  <script src="rompe.js"></script>
+</body>
+</html>
