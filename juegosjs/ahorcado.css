@@ -226,7 +226,7 @@ h1 {
   }
 
   #palabraOculta {
-    font-size: 24px;
+    font-size: 31px;
     letter-spacing: 0.5em;
     word-break: break-word;
   }
@@ -236,13 +236,13 @@ h1 {
   }
 
   .letras button {
-    font-size: 24px;
-    padding: 12px 12px;
+    font-size: 31px;
+    padding: 19px 19px;
   }
 
   #estado,
   .intentos {
-    font-size: 16px;
+    font-size: 27px;
   }
 
   .ahorcado {
@@ -279,8 +279,8 @@ h1 {
   }
 
   #reiniciar {
-    font-size: 16px;
-    padding: 10px 16px;
+    font-size: 30px;
+    padding: 25px 26px;
     margin-top: 20px;
   }
 }
