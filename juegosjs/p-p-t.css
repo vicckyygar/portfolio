@@ -17,6 +17,7 @@ body {
 
 .container {
   background: white;
+  text-aling:center;
   max-width: 600px;
   width: 90%;
   padding: 40px 30px;
@@ -30,6 +31,7 @@ h1 {
 }
 
 button {
+  text-aling:center;
   display: block;
   width: 90%;
   padding: 19px;
